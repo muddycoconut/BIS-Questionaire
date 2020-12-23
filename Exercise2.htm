@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+h1,h2,h3,h4 {
+	text-align: center;				/* text align center for header text */
+}
+
+/* center element */
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn{
+	height: 75px;
+	width: 150px;
+}
+
+.btn:hover{
+	background-color: #00FFFF;
+	border: 2px solid #00DBFF;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Exercise 2</h1>
+<h2>Click the button to draw a number</h2>
+<div class="center"> 
+	<button class="btn" onclick="selectNum()" height=20px>Let's Play!</button>
+</div>
+<h3>Your Number: <span id="out"></span> </h3>
+<h4>*Any number in the 1 to 1000 range wins!</h4>
+
+<span id="select"></span>
+
+
+<script>
+//set and display a new random number from 1 - 100,000 every ms
+function setRandom(){
+	document.getElementById('out').innerHTML = Math.random() * 100000 | 1;
+}
+setRandom();
+setInterval(setRandom, 100);
+
+//select current random number on button press and display win/loss message
+function selectNum() {
+	var num = document.getElementById('out').innerHTML
+	if (num < 1001) {
+		msg = "Yeah!!! You Won!!!";
+	}else{
+		msg = "Too bad! You've lost!";
+	}
+	alert(msg + "\nYour number was: " + num);
+	console.log(num);
+}
+</script>
+
+</body>
+</html>
